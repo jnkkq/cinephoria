@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Réservations (7 derniers jours)</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f4f8fb; }
+        #reservationsChart { max-width: 900px; margin: auto; }
+        h2 { text-align: center; }
+        #refreshBtn { display: block; margin: 20px auto; padding: 10px 20px; background: #36a2eb; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
+        #refreshBtn:hover { background: #2586b8; }
+    </style>
+</head>
+<body>
+    <h2>Réservations par film (7 derniers jours)</h2>
+    <button id="refreshBtn">Rafraîchir les données</button>
+    <canvas id="reservationsChart" height="100"></canvas>
+    <script>
+    function loadData() {
+        fetch('dashboard_data.php')
+            .then(response => response.json())
+            .then(data => {
+                const labels = data.map(item => item.film);
+                const values = data.map(item => item.nombre_reservations);
+                if(window.resChart) window.resChart.destroy();
+                window.resChart = new Chart(document.getElementById('reservationsChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Nombre de réservations',
+                            data: values,
+                            backgroundColor: 'rgba(54, 162, 235, 0.7)'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false }
+                        },
+                        scales: {
+                            x: { title: { display: true, text: 'Film' } },
+                            y: { title: { display: true, text: 'Réservations' }, beginAtZero: true }
+                        }
+                    }
+                });
+            });
+    }
+    document.getElementById('refreshBtn').onclick = loadData;
+    loadData();
+    </script>
+</body>
+</html>

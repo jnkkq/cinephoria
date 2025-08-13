@@ -1,0 +1,60 @@
+# Dependencies
+/vendor/
+composer.lock
+composer.phar
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Local configuration
+config/local.php
+
+# Cache
+/cache/
+/tmp/
+
+# Database
+*.sqlite
+*.db
+
+# Node modules (si vous en avez)
+node_modules/
+
+# Dossiers de build
+dist/
+build/
+
+# Docker
+.docker
+.dockerignore
+*.tar
+*.gz
+
+# Fichiers de configuration Docker
+!docker/
+!Dockerfile
+!docker-compose.yml
+
+# Fichiers de données Docker
+*.env
+!docker/

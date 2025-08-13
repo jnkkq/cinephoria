@@ -1,0 +1,2974 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+/* Variables pour les breakpoints */
+:root {
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1400px;
+  
+  /* Espacements responsives */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  
+  /* Tailles de police responsives */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+}
+
+/* Styles pour le header principal */
+.cinema-header-main {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 0.5rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Conteneur du header */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--breakpoint-xxl);
+    margin: 0 auto;
+    padding: 0 1rem;
+    height: 60px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Côté gauche du header */
+.header-left {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    flex-shrink: 1;
+    min-width: 0; /* Permet au contenu de se réduire correctement */
+}
+
+/* Horloge */
+.real-time-clock {
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    background-color: #e50914;
+    padding: 0 10px;
+    height: 36px;
+    min-width: 90px;
+    justify-content: center;
+    margin-right: 15px;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.real-time-clock i {
+    margin-right: 8px;
+    color: #ffffff;
+}
+
+/* Ajustement du contenu principal pour éviter que le header fixe ne masque le contenu */
+.page-wrapper {
+    padding-top: 80px;
+}
+
+/* Styles pour la navigation principale */
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1.5rem;
+}
+
+.main-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: #e50914;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #e50914;
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+/* Côté droit du header */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+/* Styles pour les boutons de connexion dans le header */
+.header-right .login-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+/* Message de bienvenue */
+.welcome-message {
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-right: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+}
+
+.menu-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.menu-brand-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 0;
+}
+
+.cinema-brand {
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0;
+    text-transform: uppercase;
+    position: relative;
+    padding-left: 1.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.cinema-brand::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60%;
+    width: 3px;
+    background: var(--primary, #e50914);
+    border-radius: 3px;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Fond noir pour la liste du menu */
+}
+
+.main-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ffffff;
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+.main-nav a:hover {
+    color: #ffffff !important;
+    background-color: #e50914 !important; /* Rouge Netflix */
+}
+
+/* Assure que le texte reste blanc pour tous les états des liens */
+.main-nav a:active,
+.main-nav a:focus,
+.main-nav a:visited {
+    color: #ffffff !important;
+}
+
+/* Menu déroulant */
+.header-menu-button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.header-menu-icon {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #ffffff;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+}
+
+/* Styles pour les écrans mobiles */
+@media (max-width: 768px) {
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #000000;
+        padding: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .main-nav.active {
+        display: block;
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .main-nav a {
+        display: block;
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid #333333;
+    }
+    
+    .main-nav a:last-child {
+        border-bottom: none;
+    }
+}
+
+/* Styles pour le footer */
+footer {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+footer p {
+    margin: 0.5rem 0;
+    color: #cccccc;
+}
+
+/* Ajustement du contenu principal pour éviter le chevauchement avec le header fixe */
+body {
+    padding-top: 80px !important;
+}
+:root {
+  --primary: #090909;
+  --secondary: #090909;
+  --accent: #090909;
+  --text: #f5f5f5;
+  --card-bg: #16213e;
+  --card-shadow: 0 4px 24px rgba(0,0,0,0.3);
+}
+body {
+  background: #f8f8f8;
+  background-image: linear-gradient(to bottom, #f8f8f8 0%, #e0e0e0 100%);
+  color: #333333;
+  font-family: 'Montserrat', Arial, sans-serif;
+  margin: 0 !important;
+  padding: 60px 0 0 0 !important;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Style pour les cartes de films */
+.film {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.film:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cinema-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5em 1.5em 2em 1.5em;
+  box-sizing: border-box;
+  min-height: calc(100vh - 200px); /* Hauteur de la vue - (header + footer) */
+  padding-bottom: 2rem; /* Espacement en bas du contenu */
+  background: transparent;
+}
+
+/* Mise en page de la page d'accueil avec publicités */
+.page-wrapper {
+  display: flex;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* Styles pour les publicités latérales */
+.advertisement {
+  width: 200px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 100px;
+  align-self: flex-start;
+}
+
+.advertisement img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.advertisement img:hover {
+  transform: scale(1.02);
+}
+
+/* Ajustement du conteneur principal */
+.cinema-container {
+  flex-grow: 1;
+  max-width: 1200px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Styles pour le carrousel */
+.carousel-container {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto 2rem auto;
+    overflow: hidden;
+    border-radius: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-slide {
+    display: flex;
+    width: 300%; /* 3 slides = 300% */
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    position: relative;
+    width: 33.333%;
+    flex-shrink: 0;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff; /* Texte blanc */
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.carousel-caption h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    color: #ffffff !important; /* Forcer la couleur blanche */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.carousel-caption p {
+    margin: 0;
+    font-size: 1rem;
+    color: #ffffff !important; /* Forcer la couleur blanche */
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    padding: 0.8rem 1.2rem;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-control:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-control.prev {
+    left: 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.carousel-control.next {
+    right: 0;
+    border-radius: 4px 0 0 4px;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+}
+
+.indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.indicator.active {
+    background-color: var(--accent);
+}
+
+/* Cinema Seat Selection */
+.seat-selection-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.screen {
+    width: 80%;
+    height: 30px;
+    background: #f0f0f0;
+    margin: 0 auto 60px; /* Augmente l'espace sous l'écran */
+    border-radius: 0;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #666;
+    font-size: 0.9rem;
+    transform: perspective(100px) rotateX(-10deg);
+}
+
+.seat-form {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 900px;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.seats-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin: 0 auto 2rem;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 1rem 0;
+}
+
+.seat-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+}
+
+.seat-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seat-checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.seat {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px 8px 4px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    background-color: #e0e0e0;
+    color: #333;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.seat-available {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.seat-available:hover {
+    transform: scale(1.1);
+    background-color: #45a049;
+}
+
+.seat-checkbox:checked + .seat-available {
+    background-color: #ff9800;
+    transform: scale(1.1);
+}
+
+.seat-pmr {
+    background-color: #090909;
+    color: white;
+}
+
+.seat-occupied {
+    background-color: #f44336;
+    color: white;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.seat-checkbox:disabled + .seat {
+    cursor: not-allowed;
+}
+
+.seat-number {
+    position: relative;
+    z-index: 1;
+}
+
+.seat-legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.form-actions {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.btn-reserve {
+    background-color: #1f4068;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.btn-reserve:hover {
+    background-color: #162b4d;
+}
+
+.login-prompt {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.login-prompt a {
+    color: #090909;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-prompt a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .seat {
+        width: 32px;
+        height: 32px;
+        font-size: 0.7rem;
+    }
+    
+    .seat-legend {
+        gap: 1rem;
+    }
+    
+    .legend-item {
+        font-size: 0.8rem;
+    }
+}
+
+/* Conteneur des films */
+.films {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.film {
+  background: white;
+  border-radius: 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.film:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.film-image-link {
+  display: block;
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.film-image-link:hover {
+  transform: scale(1.02);
+}
+
+.film img {
+  width: 100%;
+  height: 350px; /* Hauteur fixe pour toutes les images */
+  object-fit: cover;
+  object-position: top;
+  border-radius: 0 !important; /* Force l'absence de coins arrondis */
+  -webkit-border-radius: 0 !important; /* Pour les anciennes versions de Safari */
+  -moz-border-radius: 0 !important; /* Pour Firefox */
+  background: #f5f5f5; /* Fond de secours */
+  cursor: pointer;
+}
+
+/* Style pour le titre du film */
+.film h3 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 1.1rem;
+  text-align: left;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid var(--primary);
+  margin-bottom: 1rem;
+  min-height: 3.5rem;
+  display: flex;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.3;
+}
+
+/* Style pour les métadonnées du film */
+.film-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0.5rem 0 0; /* Réduit la marge inférieure car gérée par le coup de coeur */
+  align-items: center;
+  min-height: 2.5rem; /* Hauteur réduite car le coup de coeur est en dessous */
+  color: #555;
+  align-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.film-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+  white-space: nowrap;
+  background: #f8f9fa;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0;
+  line-height: 1.2;
+}
+
+.film-meta-item i {
+  color: #e50914;
+  font-size: 0.9rem;
+}
+
+.film-coup-de-coeur {
+  margin: 0.25rem 0;
+  padding: 0.5rem 0.8rem;
+  background-color: #fff5f5;
+  border: 1px solid #ffebee;
+  border-radius: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #e53935;
+  transition: all 0.2s ease;
+}
+
+.film-coup-de-coeur > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.film-coup-de-coeur i {
+  color: #e53935;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.film-coup-de-coeur:hover {
+  background-color: #ffebee;
+  transform: translateY(-1px);
+}
+
+.film-coup-de-coeur.active {
+  background-color: #ffebee;
+  box-shadow: 0 2px 4px rgba(229, 57, 53, 0.1);
+}
+
+.film-coup-de-coeur.active > div {
+  color: #e53935;
+}
+
+.film > p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+  flex-grow: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  min-height: 6rem; /* Hauteur minimum pour 4 lignes de texte */
+}
+
+/* Style pour le bouton des avis */
+.film-actions {
+  margin-top: 1rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-voir-avis {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.btn-voir-avis:hover {
+  background-color: #e9ecef;
+  border-color: #ced4da;
+  color: #000;
+}
+
+.btn-voir-avis i {
+  transition: transform 0.2s ease;
+  font-size: 0.8rem;
+}
+
+.btn-voir-avis.active i {
+  transform: rotate(180deg);
+}
+
+.btn-voir-avis {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  transition: all 0.3s ease;
+  margin-top: auto; /* Pousse le bouton vers le bas */
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-voir-avis::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.btn-voir-avis:hover {
+  background-color: #f40612;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(229, 9, 20, 0.2);
+}
+
+.btn-voir-avis:hover::before {
+  width: 100%;
+}
+
+.btn-voir-avis i {
+  transition: transform 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.btn-voir-avis.rotate i {
+  transform: rotate(180deg);
+}
+
+/* Réactivité pour les grands écrans */
+@media (min-width: 1400px) {
+  .films {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1600px;
+  }
+}
+
+/* Réactivité pour les écrans moyens */
+@media (max-width: 1399px) {
+  .films {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+  }
+}
+
+/* Réactivité pour les tablettes */
+@media (max-width: 992px) {
+  .films {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 100%;
+  }
+  
+  .film {
+    padding: 1.25rem;
+  }
+  
+  .film img {
+    height: 320px;
+  }
+  
+  .film h3 {
+    font-size: 1.2rem;
+    min-height: auto;
+  }
+  
+  .film > p {
+    -webkit-line-clamp: 3;
+    min-height: 4.5rem;
+  }
+}
+
+/* Réactivité pour les petites tablettes */
+@media (max-width: 768px) {
+  .films {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    padding: 0 0.75rem;
+  }
+  
+  .film {
+    padding: 1.1rem;
+  }
+  
+  .film img {
+    height: 300px;
+  }
+}
+
+/* Réactivité pour les mobiles */
+@media (max-width: 576px) {
+  .films {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .film {
+    padding: 1rem;
+  }
+  
+  .film img {
+    height: 280px;
+  }
+  
+  .film-meta {
+    flex-wrap: wrap;
+  }
+  
+  .film-meta-item {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.7rem;
+  }
+  
+  .film h3 {
+    font-size: 1.15rem;
+  }
+}
+
+/* Style pour la section des avis */
+.film-avis {
+  margin-top: 0.5rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  border-top: none;
+  position: relative;
+}
+
+.film-avis.visible {
+  max-height: none; /* Suppression de la hauteur maximale fixe */
+  padding: 1rem 0 0;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* Permet au conteneur de rétrécir si nécessaire */
+}
+
+/* Conteneur des avis avec défilement */
+.avis-conteneur {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 0.5rem 0.5rem 1.5rem 0;
+  margin: 0.5rem 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Barre de défilement personnalisée */
+.avis-conteneur::-webkit-scrollbar {
+  width: 4px;
+}
+
+.avis-conteneur::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 2px;
+}
+
+.avis-conteneur::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.05);
+  border-radius: 2px;
+}
+
+/* Cache la barre de défilement par défaut sur Firefox */
+.avis-conteneur {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) rgba(0,0,0,0.05);
+}
+
+.avis-conteneur::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.avis-conteneur::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.avis-conteneur::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+.film-avis h4 {
+  color: var(--primary);
+  margin: 0 0 1rem 0;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.avis-liste {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.avis-item {
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  background: #f8f9fa;
+  border-left: 3px solid var(--primary);
+}
+
+.avis-auteur {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.avis-note {
+  color: #ffc107;
+  font-weight: 500;
+  font-size: 0.9em;
+  margin-bottom: 0.5rem;
+}
+
+.avis-texte {
+  color: #555;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+/* Style pour le formulaire de filtres */
+.filtres-form {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 0;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  align-items: end;
+}
+
+.filtre-groupe {
+  margin-bottom: 0;
+}
+
+.filtre-groupe label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.filtre-groupe .form-control {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 0;
+  font-size: 1rem;
+}
+
+.filtre-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.login-btn {
+background-color: var(--primary);
+color: white;
+padding: 0.5rem 1rem;
+border-radius: 4px;
+text-decoration: none;
+transition: all 0.3s;
+font-size: 0.8rem;
+font-family: 'Montserrat', sans-serif;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+}
+
+.login-btn:hover {
+background-color: #e67e22;
+}
+
+.btn-reinitialiser {
+color: var(--primary);
+text-decoration: none;
+font-size: 0.9rem;
+transition: color 0.2s;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.btn-reinitialiser:hover {
+  text-decoration: underline;
+  color: #e67e22;
+}
+
+/* Style pour le formulaire d'avis */
+.form-avis {
+  margin: 1.5rem 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  position: relative;
+  z-index: 1;
+  background: white;
+}
+
+/* Style pour la section des commentaires */
+.commentaires-section {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+}
+
+.commentaires-section h4 {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.plus-d-avis {
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.form-avis label {
+  display: block;
+  margin: 0.75rem 0 0.25rem;
+  color: #555;
+  font-size: 0.9em;
+}
+
+.form-avis input[type="number"],
+.form-avis textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 0;
+  font-family: inherit;
+  font-size: 0.95em;
+}
+
+.form-avis textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.form-avis button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0;
+  cursor: pointer;
+  margin-top: 0.75rem;
+  font-size: 0.95em;
+  transition: background-color 0.2s;
+}
+
+.form-avis button:hover {
+  background: #0056b3;
+}
+
+/* Style pour l'étoile de notation */
+.rating-input {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  margin: 0.5rem 0 1rem;
+}
+
+.rating-input input[type="radio"] {
+  display: none;
+}
+
+.rating-input label {
+  color: #ddd;
+  font-size: 1.5em;
+  padding: 0 0.15em;
+  cursor: pointer;
+  transition: color 0.2s;
+  margin: 0;
+}
+
+.rating-input input[type="radio"]:checked ~ label,
+.rating-input input[type="radio"]:hover ~ label,
+.rating-input label:hover,
+.rating-input label:hover ~ label {
+  color: #ffc107;
+}
+
+.rating-input input[type="radio"]:checked + label {
+  color: #ffc107;
+}
+
+/* Message de connexion */
+.login-prompt {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #e7f5ff;
+  border-left: 3px solid #339af0;
+  font-size: 0.9em;
+  color: #1864ab;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.login-prompt a {
+  color: #1864ab;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+/* Style pour le message d'absence d'avis */
+.no-avis {
+  color: #6c757d;
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+/* Styles pour les genres */
+.genres-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.5rem 0 1rem;
+}
+
+.genre-checkbox {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    padding: 0.3rem 0.8rem;
+    background-color: #f8f9fa;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    border: 1px solid #dee2e6;
+}
+
+.genre-checkbox:hover {
+    background-color: #e9ecef;
+}
+
+.genre-checkbox input[type="checkbox"] {
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.genre-checkbox.checked {
+    background-color: #e50914;
+    color: white;
+    border-color: #e50914;
+}
+
+/* Assurer que Font Awesome est bien chargé */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+/* Style pour le titre de section des films - Version professionnelle */
+.section-title {
+    color: #1a1a1a;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: left;
+    margin: 2rem 0 1.5rem;
+    padding: 0 0 0.75rem 0;
+    position: relative;
+    letter-spacing: 0.5px;
+}
+
+/* Style pour les titres du tableau de bord avancé */
+.dashboard-container .header {
+    text-align: left !important;
+}
+
+.dashboard-container .header .lead {
+    font-size: 1.2rem;
+    color: #5a5c69;
+    margin-top: 0.5rem;
+    text-align: left;
+}
+
+.dashboard-container .chart-container h3 {
+    text-align: left;
+    font-size: 1.4rem;
+    margin: 2rem 0 1rem 0;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: #e50914; /* Rouge cinéma moderne */
+    transition: width 0.3s ease;
+}
+
+.section-title:hover::after {
+    width: 100%;
+}
+
+/* Style pour le titre des nouveautés sur la page d'accueil */
+#nouveaux-films .section-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    text-align: left;
+    margin: 0 0 1.5rem 0;
+    padding: 0;
+    position: relative;
+    display: inline-block;
+    border-bottom: none;
+}
+
+#nouveaux-films .section-title .highlight {
+    color: #1a1a1a;
+    font-weight: 700;
+    position: relative;
+}
+
+#nouveaux-films .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: #e50914;
+    transition: width 0.3s ease;
+}
+
+#nouveaux-films .section-title:hover::after {
+    width: 100%;
+}
+
+#nouveaux-films .section-title-container {
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+main {
+  margin-top: 0;
+}
+
+main section {
+  background: #ffffff;
+  border-radius: 0;
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+main section:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles pour l'en-tête de section amélioré */
+.section-header {
+    margin: 3rem 0 2rem;
+    text-align: center;
+}
+
+.section-title-container {
+    position: relative;
+    display: inline-block;
+    padding: 0 2rem;
+}
+
+.section-title {
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0 0 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+
+
+/* Style pour le texte normal dans les titres de section */
+.section-title {
+    color: #000; /* Couleur noire par défaut pour le texte */
+}
+
+.highlight {
+    color: var(--primary, #e50914);
+    position: relative;
+    display: inline-block;
+    padding: 0 0.5rem;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: rgba(229, 9, 20, 0.15);
+    z-index: -1;
+    transform: skewX(-15deg);
+}
+
+.title-decoration {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--primary, #e50914);
+    border-radius: 3px;
+}
+
+main section h2 {
+  color: var(--primary);
+  margin-top: 0;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid var(--accent);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Styles pour les formulaires dans les sections */
+main section form {
+  background: #f9fafb;
+  padding: 1.5rem;
+  border-radius: 6px;
+  margin-bottom: 2rem;
+  border: 1px solid #e5e7eb;
+}
+
+main section form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 0.95rem;
+}
+
+main section form input[type="text"],
+main section form input[type="number"],
+main section form input[type="date"],
+main section form input[type="time"],
+main section form select,
+main section form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+main section form input:focus,
+main section form select:focus,
+main section form textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(224, 168, 0, 0.2);
+  outline: none;
+}
+
+/* Groupe de champs de formulaire */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Boutons de formulaire */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Cartes de films */
+.cinema-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.cinema-card {
+  background: #ffffff;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid #e5e7eb;
+}
+
+.cinema-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Tableaux */
+main section table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  background: white;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+main section th,
+main section td {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+main section th {
+  background-color: var(--primary);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+main section tr:last-child td {
+  border-bottom: none;
+}
+
+main section tr:hover {
+  background-color: #f9fafb;
+}
+
+/* Styles responsifs */
+@media (max-width: 768px) {
+  main section {
+    padding: 1.25rem;
+  }
+  
+  .cinema-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .form-actions .cinema-btn {
+    width: 100%;
+  }
+}
+
+.cinema-cards {
+  display: flex;
+  gap: 2em 2.5em;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2em;
+}
+
+.cinema-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  width: 260px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5em;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.cinema-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(224,168,0,0.18);
+}
+
+header.cinema-header-main {
+  background: var(--secondary);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  padding: 0;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+.cinema-header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.6em 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cinema-header-logo-link {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5em;
+}
+.cinema-header-logo {
+  height: 48px;
+  width: 80px;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  background: #222;
+}
+.cinema-header-nav {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  gap: 1.5em;
+  flex-wrap: wrap;
+}
+.cinema-header-nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.08em;
+  padding: 0.35em 1.1em;
+  border-radius: 5px;
+  transition: background 0.15s, color 0.15s;
+  background: transparent;
+  position: relative;
+  letter-spacing: 0.5px;
+}
+.cinema-header-nav a:hover, .cinema-header-nav a.active {
+  background: #e50914; /* Rouge Netflix */
+  color: #fff;
+}
+@media (max-width: 900px) {
+  .cinema-header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.7em 0.7em;
+  }
+  .cinema-header-nav {
+    justify-content: flex-start;
+    gap: 0.7em;
+    width: 100%;
+    margin-top: 0.7em;
+  }
+  .cinema-header-logo {
+    height: 40px;
+    width: 60px;
+  }
+}
+
+.hero-banner {
+  width: 100%;
+  height: 220px;
+  background: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 3em;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+  margin-bottom: 2em;
+}
+.hero-banner h1 {
+  color: var(--accent);
+  font-size: 2.7em;
+  background: rgba(10,25,47,0.7);
+  padding: 0.5em 2em;
+  border-radius: 6px;
+}
+.cinema-cards {
+  display: flex;
+  gap: 2em;
+  flex-wrap: wrap;
+  margin-bottom: 2em;
+}
+.cinema-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  width: 260px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+.cinema-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(224,168,0,0.18);
+}
+.cinema-card img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  background: #222;
+}
+.cinema-card-content {
+  padding: 1em 1.2em;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  color: #333333;
+}
+.cinema-card-title {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #222222;
+  margin-bottom: 0.3em;
+}
+.cinema-card-desc {
+  font-size: 0.98em;
+  color: #444444;
+  margin-bottom: 0.8em;
+  flex: 1;
+}
+.cinema-card-age {
+  font-size: 0.92em;
+  color: #666666;
+  margin-bottom: 0.8em;
+}
+.cinema-card-coeur {
+  color: #e0a800;
+  font-size: 1.1em;
+  margin-bottom: 0.8em;
+}
+.cinema-card-actions {
+  display: flex;
+  gap: 0.7em;
+  margin-top: 0.8em;
+}
+
+.cinema-card-actions form {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  flex: 1;
+}
+
+.cinema-card-actions .cinema-btn {
+  width: 100%;
+  min-width: 80px;
+  padding: 0.4em 0.8em;
+  font-size: 0.85em;
+  font-weight: 600;
+  text-align: center;
+  background: var(--accent);
+  color: #222;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cinema-card-actions form .cinema-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.cinema-card-actions .cinema-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.cinema-card-actions form .cinema-btn:hover {
+  background: #c82333;
+}
+
+form, table {
+  margin-bottom: 2em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+}
+
+table th, table td {
+  padding: 0.7em 1em;
+  border: 1px solid #233554;
+}
+table th {
+  background: var(--secondary);
+  color: var(--accent);
+}
+table td {
+  color: var(--primary);
+  vertical-align: middle;
+}
+
+/* Assurer que les liens dans les tableaux ont la même couleur */
+table a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+table a:hover {
+  text-decoration: underline;
+}
+
+/* Styles pour les boutons d'action dans les tableaux */
+table .action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5em;
+  white-space: nowrap;
+}
+
+/* Classe pour centrer un seul bouton */
+table .action-buttons.single-button {
+  justify-content: center;
+}
+
+table .action-buttons form {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Styles pour les formulaires d'administration */
+.admin-form {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 0;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 2rem;
+}
+
+.admin-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.admin-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.admin-form input[type="text"],
+.admin-form input[type="email"],
+.admin-form input[type="password"],
+.admin-form select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #4a5568;
+  border-radius: 0;
+  background-color: #2d3748;
+  color: white;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.admin-form input[type="text"]:focus,
+.admin-form input[type="email"]:focus,
+.admin-form input[type="password"]:focus,
+.admin-form select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(224, 168, 0, 0.25);
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: flex-end;
+}
+
+.form-actions .cinema-btn {
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 0;
+}
+
+/* Structure de la page avec publicités */
+.page-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  gap: 3rem;
+}
+
+.advertisement {
+  width: 250px;
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+  flex-shrink: 0;
+}
+
+.advertisement img {
+  width: 100%;
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.advertisement img:hover {
+  transform: scale(1.03);
+}
+
+.advertisement.left {
+  order: 1;
+}
+
+.cinema-container {
+  order: 2;
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.advertisement.right {
+  order: 3;
+}
+
+/* Style pour le message d'avis */
+.avis-notice {
+  background-color: #f8f9fa;
+  border-left: 4px solid var(--primary);
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  font-size: 0.9em;
+  color: #495057;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Style pour les sections principales */
+main section {
+  background: #f8f8f8;
+}
+
+/* Styles spécifiques pour les tables d'administration */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #2d3748;
+}
+
+.admin-table th {
+  background-color: var(--secondary);
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.admin-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+table .action-buttons button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: var(--accent);
+  color: #222;
+  transition: all 0.2s;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+table .action-buttons button[type="submit"] {
+  background: #dc3545;
+  color: white;
+}
+
+table .action-buttons button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+table .action-buttons button[type="submit"]:hover {
+  background: #c82333;
+}
+input, select {
+  background: #ffffff;
+  color: #333;
+  border: 1px solid #233554;
+  border-radius: 0;
+  padding: 0.5em;
+  margin: 0.3em 0.5em 0.7em 0;
+  font-size: 1em;
+  min-width: 120px;
+}
+
+textarea {
+  background: #ffffff;
+  color: #333;
+  border: 1px solid #233554;
+  border-radius: 0;
+  padding: 0.5em;
+  margin: 0.3em 0.5em 0.7em 0;
+  font-size: 1em;
+  min-width: 120px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  resize: vertical;
+}
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 0.4em;
+}
+
+
+/* Style pour les boutons d'action du tableau des salles */
+table .action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+table .action-buttons button {
+  margin: 0;
+  padding: 5px 10px;
+  min-width: auto;
+}
+
+/* Style spécifique pour le bouton de menu */
+.header-menu-button {
+  background: transparent;
+  border: none;
+  padding: 8px 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  color: white;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.header-menu-icon {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: white;
+  margin: 0 auto;
+}
+
+/* Styles de base pour les boutons */
+button:not(.header-menu-button), .cinema-btn {
+  font-family: 'Montserrat', Arial, sans-serif;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 600;
+  margin: 0.3em 0.2em;
+}
+
+button:hover, .cinema-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Styles spécifiques pour le header */
+.header-right .login-btn {
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  margin-left: 0.5em;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.header-right .login-btn:hover {
+  background: #e50914;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(229, 9, 20, 0.3);
+}
+
+/* Styles spécifiques pour le tableau de bord */
+.cinema-container button[type="submit"] {
+  background: #dc3545;
+  color: white;
+}
+
+.cinema-container button[type="submit"]:hover {
+  background: #c82333;
+}
+
+/* Styles pour les cartes de film */
+.film {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.film:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Suppression de l'effet de survol gris sur toute la carte */
+
+/* Styles pour les boutons d'action des films */
+.film-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn-reserver {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #e50914;
+    color: white !important;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    flex: 1;
+    text-align: center;
+}
+
+.btn-reserver:hover {
+    background-color: #f40612;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(229, 9, 20, 0.3);
+}
+
+.btn-reserver i {
+    font-size: 1rem;
+}
+
+.btn-voir-avis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: transparent;
+    color: #a0aec0 !important;
+    border: 1px solid #4a5568;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    text-align: center;
+}
+
+.btn-voir-avis:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #e50914 !important; /* Rouge au survol */
+    border-color: #e50914; /* Bordure rouge au survol */
+}
+
+/* Style spécifique pour le texte du bouton au survol */
+.btn-voir-avis:hover span {
+    color: #e50914 !important; /* Rouge au survol */
+}
+
+/* Style pour le bouton Modifier dans la section films */
+.cinema-cards .cinema-card-actions .cinema-btn[onclick*="remplirFilm"] {
+    color: #ffffff !important;
+}
+
+.cinema-container button[name^="modifier_"] {
+  background: #ffc107;
+  color: #222;
+}
+
+.cinema-container button[name^="ajouter_"] {
+  background: #28a745;
+  color: white;
+}
+
+/* Styles spécifiques pour chaque type de bouton du tableau de bord */
+.cinema-container button[name="modifier_employe"],
+.cinema-container button[name="modifier_salle"],
+.cinema-container button[name="modifier_film"],
+.cinema-container button[name="modifier_seance"] {
+  background: #ffc107;
+  color: #222;
+}
+
+.cinema-container button[name="ajouter_employe"],
+.cinema-container button[name="ajouter_salle"],
+.cinema-container button[name="ajouter_film"],
+.cinema-container button[name="ajouter_seance"] {
+  background: #28a745;
+  color: white;
+}
+
+/* Style pour les labels du formulaire employé */
+#employe-form label {
+  color: #1f4068 !important;
+  font-weight: 600 !important;
+  margin-top: 0.8em !important;
+  display: block !important;
+  font-size: 1em !important;
+}
+
+/* Champs du formulaire employé */
+#employe-form input[type="text"],
+#employe-form input[type="email"],
+#employe-form input[type="password"],
+#employe-form select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 0;
+  background-color: #fff;
+  color: #333;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-bottom: 1rem;
+}
+
+#employe-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+}
+
+#employe-form .form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: flex-start;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  background: #16213e;
+}
+::-webkit-scrollbar-thumb {
+  background: #233554;
+  border-radius: 6px;
+}
+
+/* Conteneur principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Header */
+.cinema-header-main {
+  background-color: var(--primary);
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  height: 60px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index: 9999 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  display: flex !important;
+  align-items: center;
+}
+
+/* Conteneur interne du header */
+.header-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* Menu déroulant */
+.menu-container {
+  position: relative;
+  z-index: 1001;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  position: relative;
+  z-index: 1002;
+}
+
+.menu-icon {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--accent);
+  margin: 2px 0;
+  transition: all 0.3s ease;
+}
+
+.menu-text {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Navigation */
+.main-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--secondary);
+  min-width: 250px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 4px 4px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.menu-container:hover .main-nav {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.main-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.main-nav li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.main-nav a {
+  display: block;
+  padding: 0.8rem 1.2rem;
+  color: var(--text);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.main-nav a:hover {
+  background-color: var(--accent);
+  color: var(--primary);
+  padding-left: 1.5rem;
+}
+
+/* Boutons de connexion */
+.header-right {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Styles pour les boutons de filtre */
+.filtre-actions {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+    align-items: center;
+}
+
+.btn-filtre, .btn-reinitialiser {
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-filtre {
+    background-color: #1f4068;
+    color: white;
+}
+
+.btn-filtre:hover {
+    background-color: #163258;
+    transform: translateY(-1px);
+}
+
+.btn-reinitialiser {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.btn-reinitialiser:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-1px);
+}
+
+.login-btn {
+  background: var(--accent);
+  color: var(--primary);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.login-btn:hover {
+  background: #ffd700;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ===========================================
+   STYLES POUR LA PAGE D'INSCRIPTION
+   =========================================== */
+
+.cinema-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 120px); /* Ajustement pour le header fixe */
+  padding: 1rem;
+  background-color: #f8f8f8;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.auth-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  padding: 2rem;
+  margin: 1rem auto;
+  box-sizing: border-box;
+}
+
+.auth-title {
+  color: #000000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.auth-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin: 0 -0.5rem;
+}
+
+.form-col {
+  flex: 1;
+  padding: 0 0.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.form-control:focus {
+  border-color: #e50914;
+  box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.2);
+  outline: none;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-primary {
+  background-color: #e50914;
+  color: white;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.btn-primary:hover {
+  background-color: #c11119;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(229, 9, 20, 0.3);
+}
+
+.alert {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.alert-danger {
+  background-color: #fde8e8;
+  color: #9b1c1c;
+  border-left: 4px solid #e53e3e;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.auth-link {
+  color: #e50914;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.auth-link:hover {
+  color: #c11119;
+  text-decoration: underline;
+}
+
+/* ===========================================
+   MEDIA QUERIES - RESPONSIVE DESIGN
+   =========================================== */
+
+/* Grands écrans (à partir de 1200px) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .films {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  /* Afficher les publicités sur grand écran */
+  .ad-container {
+    display: block;
+  }
+}
+
+/* Ordinateurs portables (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .header-container {
+    padding: 0 1.5rem;
+  }
+  
+  .main-nav ul {
+    gap: 1rem;
+  }
+  
+  .welcome-message {
+    max-width: 120px;
+  }
+  
+  .films {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* Afficher les publicités sur ordinateur portable */
+  .ad-container {
+    display: block;
+  }
+}
+
+/* Tablettes en mode paysage (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .header-container {
+    padding: 0 1.25rem;
+  }
+  
+  .cinema-brand {
+    font-size: 1.3rem;
+  }
+  
+  .main-nav {
+    display: none; /* On cache la navigation principale sur tablette et mobile */
+  }
+  
+  .header-right {
+    margin-left: auto;
+  }
+  
+  .menu-brand-container {
+    flex-grow: 1;
+  }
+  
+  .menu-brand-container button {
+    margin-right: 0.5rem;
+  }
+  
+  .films {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .film img {
+    height: 300px;
+  }
+  
+  /* Masquer les publicités sur tablette */
+  .ad-container {
+    display: none !important;
+  }
+}
+
+/* Tablettes en mode portrait et grands téléphones (576px - 767px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .page-wrapper {
+    padding-top: 70px;
+  }
+  
+  .header-container {
+    height: 70px;
+    padding: 0 1rem;
+  }
+  
+  .real-time-clock {
+    display: none; /* On cache l'horloge sur mobile */
+  }
+  
+  .films {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .film img {
+    height: 280px;
+  }
+  
+  .auth-card {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .auth-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .form-col {
+    margin-bottom: 1rem;
+    padding: 0;
+  }
+  
+  .form-col:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Masquer les publicités sur les grands téléphones */
+  .ad-container {
+    display: none !important;
+  }
+}
+
+/* Petits téléphones (jusqu'à 575px) */
+@media (max-width: 575.98px) {
+  .header-container {
+    padding: 0 0.75rem;
+  }
+  
+  .cinema-brand {
+    font-size: 1.1rem;
+    padding-left: 1rem;
+  }
+  
+  .header-right {
+    gap: 0.5rem;
+  }
+  
+  .login-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.7rem;
+  }
+  
+  .welcome-message {
+    display: none; /* On cache le message de bienvenue sur très petits écrans */
+  }
+  
+  .films {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 0.75rem;
+  }
+  
+  .film img {
+    height: 250px;
+  }
+  
+  .auth-card {
+    padding: 1.25rem;
+    margin: 0.75rem;
+    border-radius: 0;
+  }
+  
+  .auth-title {
+    font-size: 1.3rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .form-control {
+    padding: 0.6rem 0.9rem;
+  }
+  
+  /* Masquer les publicités sur mobile */
+  .ad-container {
+    display: none !important;
+  }
+}
