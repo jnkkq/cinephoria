@@ -6,6 +6,42 @@ Cinephoria est une solution complète de gestion de cinéma, incluant :
 - Une application bureautique (Tkinter Python)
 - Un backend API REST (PHP)
 
+## 🐳 Utilisation avec Docker (Méthode recommandée)
+
+### Prérequis
+- Docker et Docker Compose installés
+- Git (pour cloner le dépôt)
+
+### 1. Télécharger l'image Docker
+
+```bash
+docker pull ghcr.io/jnkkq/cinephoria:latest
+```
+
+### 2. Lancer le conteneur
+
+```bash
+docker run -d -p 80:80 -p 3306:3306 --name cinephoria ghcr.io/jnkkq/cinephoria:latest
+```
+
+### 3. Accéder à l'application
+- Application web : http://localhost
+- phpMyAdmin : http://localhost:8080
+  - Utilisateur : `root`
+  - Mot de passe : (laissez vide)
+
+### 4. Arrêter le conteneur
+
+```bash
+docker stop cinephoria
+```
+
+### 5. Démarrer à nouveau le conteneur
+
+```bash
+docker start cinephoria
+```
+
 ---
 
 ## SOMMAIRE
