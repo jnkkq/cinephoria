@@ -1,18 +1,35 @@
 # Cinephoria - Déploiement avec Docker
 
-Ce projet peut être facilement exécuté avec Docker en quelques étapes simples.
+Ce projet peut être facilement exécuté avec Docker en quelques étapes simples. Deux options sont disponibles :
 
-## Prérequis
+## Option 1 : Utiliser l'image Docker pré-construite (recommandé)
 
+```bash
+# Télécharger l'image
+docker pull ghcr.io/jnkkq/cinephoria:latest
+
+# Lancer le conteneur
+docker run -d -p 80:80 -p 3306:3306 --name cinephoria-app ghcr.io/jnkkq/cinephoria:latest
+```
+
+**Accès :**
+- Application : http://localhost
+- phpMyAdmin : http://localhost:8080
+  - Utilisateur : `root`
+  - Mot de passe : `root`
+
+## Option 2 : Construire l'image localement
+
+### Prérequis
 - Docker installé sur votre machine
 - Git (pour cloner le dépôt)
 
-## Instructions d'installation
+### Instructions d'installation
 
 1. **Cloner le dépôt** :
    ```bash
-   git clone [URL_DU_DEPOT]
-   cd cinephoria-main
+   git clone https://github.com/jnkkq/cinephoria.git
+   cd cinephoria
    ```
 
 2. **Construire l'image Docker** :
@@ -22,12 +39,14 @@ Ce projet peut être facilement exécuté avec Docker en quelques étapes simple
 
 3. **Lancer le conteneur** :
    ```bash
-   docker run -d -p 8080:80 --name cinephoria-app cinephoria
+   docker run -d -p 80:80 -p 3306:3306 --name cinephoria-app cinephoria
    ```
 
 4. **Accéder à l'application** :
-   - Application : http://localhost:8080
-   - phpMyAdmin : http://localhost:8080/phpmyadmin (si activé)
+   - Application : http://localhost
+   - phpMyAdmin : http://localhost:8080
+     - Utilisateur : `root`
+     - Mot de passe : `root`
 
 ## Configuration
 
